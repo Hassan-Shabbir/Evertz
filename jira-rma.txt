@@ -1,0 +1,51 @@
+response = requests.request("POST", api_url, data=subtask_payload, headers={'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Basic {}'.format(base64.b64encode('hshabbir@evertz.com:'.encode('ascii')).decode('ascii'))})
+
+
+# lists all projects
+#api_url= "https://evertz.atlassian.net/rest/api/3/project"
+
+
+ticket_response.json()["id"]
+ticket_response.json()["self"]
+ticket_response.json()["key"]
+ticket_response.json()["expand"]
+ticket_response.json()["fields"]["resolution"]["name"]
+ticket_response.json()["fields"]["lastViewed"]
+ticket_response.json()["fields"]["assignee"]["displayName"]
+ticket_response.json()["fields"]["issuetype"]["name"]
+ticket_response.json()["fields"]["duedate"]
+ticket_response.json()["fields"]["status"]["name"]
+ticket_response.json()["fields"]["status"]["statusCategory"]["name"]
+ticket_response.json()["fields"]["creator"]["displayName"]
+ticket_response.json()["fields"]["customfield_14310"]["currentStatus"]["status"]
+ticket_response.json()["fields"]["customfield_14310"]["currentStatus"]["statusCategory"]
+ticket_response.json()["fields"]["customfield_14310"]["currentStatus"]["statusDate"]["friendly"]
+[elem["name"] for elem in ticket_response.json()["fields"]["components"]]
+ticket_response.json()["fields"]["reporter"]["displayName"]
+ticket_response.json()["fields"]["project"]["key"]
+ticket_response.json()["fields"]["project"]["name"]
+#response.json()["fields"]["customfield_12336"]["content"] # RMA template
+ticket_response.json()["fields"]["resolutiondate"]
+ticket_response.json()["fields"]["summary"] # title?
+#response.json()["fields"]["comment"] # object contains all comments (too big)
+ticket_response.json()["fields"]["customfield_14337"]["name"] # time to resolve (software)
+ticket_response.json()["fields"]["customfield_14337"]["ongoingCycle"]["startTime"]["friendly"]
+ticket_response.json()["fields"]["customfield_14337"]["ongoingCycle"]["breachTime"]["friendly"]
+ticket_response.json()["fields"]["customfield_14337"]["ongoingCycle"]["breached"]
+ticket_response.json()["fields"]["customfield_14337"]["ongoingCycle"]["remainingTime"]["friendly"]
+ticket_response.json()["fields"]["customfield_14329"]["value"] # platform (migrated)
+[elem["value"] for elem in ticket_response.json()["fields"]["customfield_14326"]] # site location
+ticket_response.json()["fields"]["customfield_14324"]["name"] # time to resolution
+[elem["breached"] for elem in ticket_response.json()["fields"]["customfield_14324"]["completedCycles"]]
+[elem["remainingTime"]["friendly"] for elem in ticket_response.json()["fields"]["customfield_14324"]["completedCycles"]]
+for elem in ticket_response.json()["fields"]["customfield_14319"]:
+elem["displayName"]
+try: 
+	elem["emailAddress"]
+except Exception:
+	pass
+[elem["filename"] for elem in ticket_response.json()["fields"]["attachment"]] # files
+response.json()["fields"]["customfield_14328"]["value"] # issue severity
+response.json()["renderedFields"]["customfield_12336"] # is main RMA text field
+response.json()["renderedFields"]["description"]
+response.json()["renderedFields"]["customfield_12552"]  # problem desc and firmware
